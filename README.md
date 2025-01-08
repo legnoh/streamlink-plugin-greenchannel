@@ -5,7 +5,8 @@
 Copy `greenchannel.py` to [sideload directories](https://streamlink.github.io/cli/plugin-sideloading.html)
 
 ```
-curl -o ${HOME}/Library/Application Support/streamlink/plugins/greenchannel.py
+curl -o "${HOME}/Library/Application Support/streamlink/plugins/greenchannel.py" \
+    https://raw.githubusercontent.com/legnoh/streamlink-plugin-greenchannel/refs/heads/main/greenchannel.py
 ```
 
 ## Usage
