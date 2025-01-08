@@ -23,3 +23,10 @@ streamlink "https://sp.gch.jp/#ch1" --greenchannel-email="yourmail@test.com" --g
 # get stream url
 streamlink "https://sp.gch.jp/#ch1" --greenchannel-email="yourmail@test.com" --greenchannel-password="XXX..." best --stream-url
 ```
+
+## Disclaim
+
+- このプラグインの利用は、すべて自己の責任の元に行ってください。
+  - 開発者はこのプラグインの利用によって生じた一切の事案について責任を持ちません。
+- 動作を保証するものではありません。
+- 怒られたら公開を取りやめます。
