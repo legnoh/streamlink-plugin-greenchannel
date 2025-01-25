@@ -57,7 +57,7 @@ class Greenchannel(Plugin):
         return self.parse_variant_playlist(self.session)
     
     def login(self, email:str, password:str):
-        log.info(f"Attempting login as {email}:{password}")
+        log.info(f"Attempting login as {email}")
         res = self.session.http.post(
             url=self._API_URL+"/at",
             headers={"Content-Type": "application/json"},
