@@ -1,0 +1,58 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/.venv/bin/streamlink",
+      "args": [
+        "--plugin-dirs",
+        "${workspaceFolder}/greenchannel",
+        "https://sp.gch.jp/#ch1",
+        "--greenchannel-email",
+        "YOURMAIL@com",
+        "--greenchannel-password",
+        "YOURPASSWORD",
+        "best",
+        "--stream-url",
+      ],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Debug(LL)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/.venv/bin/streamlink",
+      "args": [
+        "--plugin-dirs",
+        "${workspaceFolder}/greenchannel",
+        "https://sp.gch.jp/#ch1",
+        "--greenchannel-email",
+        "YOURMAIL@com",
+        "--greenchannel-password",
+        "YOURPASSWORD",
+        "--greenchannel-low-latency",
+        "best",
+        "--stream-url",
+      ],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Debug(list)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/.venv/bin/streamlink",
+      "args": [
+        "--plugin-dirs",
+        "${workspaceFolder}/greenchannel",
+        "https://sp.gch.jp/#ch1",
+        "--greenchannel-email",
+        "YOURMAIL@com",
+        "--greenchannel-password",
+        "YOURPASSWORD"
+      ],
+      "console": "integratedTerminal"
+    },
+  ]
+}
