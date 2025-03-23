@@ -5,18 +5,11 @@ $type live
 $account Required username and password
 """
 
-import logging
-import re
+import logging,os,re
 
 from streamlink.plugin import Plugin, PluginError, pluginargument, pluginmatcher
 from streamlink.plugin.api import validate
 from streamlink.stream import HLSStream
-from streamlink.stream.hls import MuxedHLSStream
-from streamlink.stream.hls.segment import Media
-from streamlink.stream.ffmpegmux import FFMPEGMuxer
-from streamlink.stream.hls.m3u8 import parse_m3u8, M3U8Parser
-from streamlink.utils.l10n import Language
-from streamlink.session import Streamlink
 
 log = logging.getLogger(__name__)
 
@@ -55,16 +48,28 @@ class Greenchannel(Plugin):
 
     def _get_streams(self):
 
-        self.login(self.get_option("email"), self.get_option("password"))
-        self.channel_code = 1
-        self.low_latency = self.get_option("low-latency")
+        username = self.get_option("email")
+        password = self.get_option("password")
+
+        # for debug
+        if username == "debug":
+            username = os.getenv("GREENCHANNEL_EMAIL")
+        if password == "debug":
+            password = os.getenv("GREENCHANNEL_PASSWORD")
+
+        self.login(username, password)
+
+        self.channel_code:int = 1
+        self.low_latency:bool = self.get_option("low-latency")
+        if self.channel_code != 1:
+            self.low_latency = False
 
         if self.match["channel_code"]:
-            self.channel_code = int(self.match["channel_code"])
+            self.channel_code:int = int(self.match["channel_code"])
 
-        self.program_code = self.get_latest_epg()
+        self.program_code:str = self.get_latest_epg()
 
-        self.m3u8_url = self.get_m3u8_url()
+        self.m3u8_url:str = self.get_m3u8_url()
         return HLSStream.parse_variant_playlist(self.session, self.m3u8_url)
 
     def login(self, email:str, password:str):
@@ -83,7 +88,7 @@ class Greenchannel(Plugin):
         else:
             raise PluginError("Login failed")
 
-    def get_latest_epg(self):
+    def get_latest_epg(self) -> str:
         res = self.session.http.get(
             url=self._API_EPG_URL+"/latest",
             params={"channel_code": f"ch{self.channel_code}"}
@@ -97,7 +102,7 @@ class Greenchannel(Plugin):
         else:
             raise PluginError(f"ch{self.channel_code}: latest epg data response were unexpected format.")
 
-    def get_m3u8_url(self):
+    def get_m3u8_url(self) -> str:
         res = self.session.http.post(
             url=self._API_URL+"/vi",
             headers={
