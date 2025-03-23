@@ -6,7 +6,6 @@ $account Required username and password
 """
 
 import logging,os,re
-
 from streamlink.plugin import Plugin, PluginError, pluginargument, pluginmatcher
 from streamlink.plugin.api import validate
 from streamlink.stream import HLSStream
@@ -50,27 +49,26 @@ class Greenchannel(Plugin):
 
         username = self.get_option("email")
         password = self.get_option("password")
-
+        
         # for debug
-        if username == "debug":
-            username = os.getenv("GREENCHANNEL_EMAIL")
-        if password == "debug":
+        if username == "debug" and password == "debug":
+            username = os.getenv("GREENCHANNEL_USERNAME")
             password = os.getenv("GREENCHANNEL_PASSWORD")
 
-        self.login(username, password)
-
-        self.channel_code:int = 1
-        self.low_latency:bool = self.get_option("low-latency")
+        self.login(self.get_option("email"), self.get_option("password"))
+        self.channel_code = 1
+        self.low_latency = self.get_option("low-latency")
         if self.channel_code != 1:
             self.low_latency = False
 
         if self.match["channel_code"]:
-            self.channel_code:int = int(self.match["channel_code"])
+            self.channel_code = int(self.match["channel_code"])
 
-        self.program_code:str = self.get_latest_epg()
+        self.program_code = self.get_latest_epg()
 
-        self.m3u8_url:str = self.get_m3u8_url()
-        return HLSStream.parse_variant_playlist(self.session, self.m3u8_url)
+        self.m3u8_url = self.get_m3u8_url()
+        streams = HLSStream.parse_variant_playlist(self.session, self.m3u8_url)
+        return streams
 
     def login(self, email:str, password:str):
         log.info(f"Attempting login as {email}")
