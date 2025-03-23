@@ -23,10 +23,10 @@ streamlink "https://sp.gch.jp/" --greenchannel-email="yourmail@test.com" --green
 streamlink "https://sp.gch.jp/#ch1" --greenchannel-email="yourmail@test.com" --greenchannel-password="XXX..." best
 
 # get stream url
-streamlink "https://sp.gch.jp/#ch1" --greenchannel-email="yourmail@test.com" --greenchannel-password="XXX..." best --stream-url
+streamlink "https://sp.gch.jp/#ch1" --greenchannel-email="yourmail@test.com" --greenchannel-password="XXX..." --stream-url
 
 # get stream url with low latency option
-streamlink "https://sp.gch.jp/#ch1" --greenchannel-email="yourmail@test.com" --greenchannel-password="XXX..." --greenchannel-low-latency best --stream-url
+streamlink "https://sp.gch.jp/#ch1" --greenchannel-email="yourmail@test.com" --greenchannel-password="XXX..." --greenchannel-low-latency --stream-url
 ```
 
 ## Disclaim
