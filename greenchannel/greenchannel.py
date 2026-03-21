@@ -8,7 +8,7 @@ $account Required username and password
 import logging,os,re
 from streamlink.plugin import Plugin, PluginError, pluginargument, pluginmatcher
 from streamlink.plugin.api import validate
-from streamlink.stream import HLSStream
+from streamlink.stream.hls import HLSStream
 
 log = logging.getLogger(__name__)
 
@@ -47,15 +47,15 @@ class Greenchannel(Plugin):
 
     def _get_streams(self):
 
-        username = self.get_option("email")
+        email = self.get_option("email")
         password = self.get_option("password")
         
         # for debug
-        if username == "debug" and password == "debug":
-            username = os.getenv("GREENCHANNEL_USERNAME")
+        if email == "debug" and password == "debug":
+            email = os.getenv("GREENCHANNEL_EMAIL")
             password = os.getenv("GREENCHANNEL_PASSWORD")
 
-        self.login(self.get_option("email"), self.get_option("password"))
+        self.login(email, password)
         self.channel_code = 1
         self.low_latency = self.get_option("low-latency")
         if self.channel_code != 1:

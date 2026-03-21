@@ -5,25 +5,30 @@
       "name": "Debug(Ch1)",
       "type": "debugpy",
       "request": "launch",
-      "program": "${workspaceFolder}/.venv/bin/streamlink",
+      "program": "${workspaceFolder}/.venv/bin/python",
       "args": [
+        "-m",
+        "streamlink",
         "--plugin-dirs",
         "${workspaceFolder}/greenchannel",
-        "https://sp.gch.jp/",
+        "https://sp.gch.jp/#ch1",
         "--greenchannel-email=debug",
         "--greenchannel-password=debug",
         "best",
-        "--stream-url",
+        "--stream-url"
       ],
       "console": "integratedTerminal",
       "envFile": "${workspaceFolder}/.env",
+      "justMyCode": false
     },
     {
       "name": "Debug(Ch1/LL)",
       "type": "debugpy",
       "request": "launch",
-      "program": "${workspaceFolder}/.venv/bin/streamlink",
+      "program": "${workspaceFolder}/.venv/bin/python",
       "args": [
+        "-m",
+        "streamlink",
         "--plugin-dirs",
         "${workspaceFolder}/greenchannel",
         "https://sp.gch.jp/#ch1",
@@ -31,85 +36,100 @@
         "--greenchannel-password=debug",
         "--greenchannel-low-latency=true",
         "best",
-        "--stream-url",
+        "--stream-url"
       ],
       "console": "integratedTerminal",
-      "envFile": "${workspaceFolder}/.env"
+      "envFile": "${workspaceFolder}/.env",
+      "justMyCode": false
     },
     {
       "name": "Debug(Ch2)",
       "type": "debugpy",
       "request": "launch",
-      "program": "${workspaceFolder}/.venv/bin/streamlink",
+      "program": "${workspaceFolder}/.venv/bin/python",
       "args": [
+        "-m",
+        "streamlink",
         "--plugin-dirs",
         "${workspaceFolder}/greenchannel",
         "https://sp.gch.jp/#ch2",
         "--greenchannel-email=debug",
         "--greenchannel-password=debug",
         "best",
-        "--stream-url",
+        "--stream-url"
       ],
       "console": "integratedTerminal",
       "envFile": "${workspaceFolder}/.env",
+      "justMyCode": false
     },
     {
       "name": "Debug(Ch3)",
       "type": "debugpy",
       "request": "launch",
-      "program": "${workspaceFolder}/.venv/bin/streamlink",
+      "program": "${workspaceFolder}/.venv/bin/python",
       "args": [
+        "-m",
+        "streamlink",
         "--plugin-dirs",
         "${workspaceFolder}/greenchannel",
         "https://sp.gch.jp/#ch3",
         "--greenchannel-email=debug",
         "--greenchannel-password=debug",
         "best",
-        "--stream-url",
+        "--stream-url"
       ],
       "console": "integratedTerminal",
       "envFile": "${workspaceFolder}/.env",
+      "justMyCode": false
     },
     {
       "name": "Debug(Ch4)",
       "type": "debugpy",
       "request": "launch",
-      "program": "${workspaceFolder}/.venv/bin/streamlink",
+      "program": "${workspaceFolder}/.venv/bin/python",
       "args": [
+        "-m",
+        "streamlink",
         "--plugin-dirs",
         "${workspaceFolder}/greenchannel",
         "https://sp.gch.jp/#ch4",
         "--greenchannel-email=debug",
         "--greenchannel-password=debug",
         "best",
-        "--stream-url",
+        "--stream-url"
       ],
       "console": "integratedTerminal",
       "envFile": "${workspaceFolder}/.env",
+      "justMyCode": false
     },
     {
       "name": "Debug(Ch5)",
       "type": "debugpy",
       "request": "launch",
-      "program": "${workspaceFolder}/.venv/bin/streamlink",
+      "program": "${workspaceFolder}/.venv/bin/python",
       "args": [
+        "-m",
+        "streamlink",
         "--plugin-dirs",
         "${workspaceFolder}/greenchannel",
         "https://sp.gch.jp/#ch5",
         "--greenchannel-email=debug",
         "--greenchannel-password=debug",
         "best",
-        "--stream-url",
+        "--stream-url"
       ],
       "console": "integratedTerminal",
       "envFile": "${workspaceFolder}/.env",
+      "justMyCode": false
     },
     {
       "name": "Debug(list)",
       "type": "debugpy",
       "request": "launch",
-      "program": "${workspaceFolder}/.venv/bin/streamlink",
+      "program": "${workspaceFolder}/.venv/bin/python",
       "args": [
+        "-m",
+        "streamlink",
         "--plugin-dirs",
         "${workspaceFolder}/greenchannel",
         "https://sp.gch.jp/#ch1",
@@ -118,6 +138,7 @@
       ],
       "console": "integratedTerminal",
       "envFile": "${workspaceFolder}/.env",
-    },
+      "justMyCode": false
+    }
   ]
 }
