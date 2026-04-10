@@ -5,7 +5,7 @@ description = "Streamlink plugin for GreenCH"
 readme = "README.md"
 requires-python = ">=3.14.4"
 dependencies = [
-    "streamlink>=8.2.1",
+    "streamlink>=8.3.0",
 ]
 
 [project.entry-points."streamlink.plugins"]
